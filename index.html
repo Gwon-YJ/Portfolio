@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function toggleVideo(videoId, buttonClass, timeDisplayClass, totalTimeClass, sliderClass) {
+            const myVideo = document.getElementById(videoId);
+            const button = document.querySelector(buttonClass);
+            const timeDisplay = document.querySelector(timeDisplayClass);
+            const totalTimeDisplay = document.querySelector(totalTimeClass);
+            const slider = document.querySelector(sliderClass);
+
+            function updateTime() {
+                const currentTime = myVideo.currentTime;
+                const minutes = Math.floor(currentTime / 60);
+                const seconds = Math.floor(currentTime % 60).toString().padStart(2, '0');
+                timeDisplay.textContent = `${minutes}:${seconds}`; // 현재 시간 형식 (MM:SS)
+
+                // 슬라이더 업데이트
+                slider.value = currentTime;
+                slider.max = myVideo.duration;
+
+                // 총 시간 업데이트
+                const totalMinutes = Math.floor(myVideo.duration / 60);
+                const totalSeconds = Math.floor(myVideo.duration % 60).toString().padStart(2, '0');
+                totalTimeDisplay.textContent = `${totalMinutes}:${totalSeconds}`; // 총 시간 형식 (MM:SS)
+            }
+
+            if (myVideo.paused) {
+                myVideo.play();
+                button.style.backgroundPosition = '0 -50px'; // 일시정지 아이콘
+            } else {
+                myVideo.pause();
+                button.style.backgroundPosition = '0 0px'; // 재생 아이콘
+            }
+
+            myVideo.addEventListener('timeupdate', updateTime);
+
+            // 슬라이더 변경 시 비디오 시간 설정
+            slider.addEventListener('input', () => {
+                myVideo.currentTime = slider.value;
+            });
+
+            // 메타데이터가 로드될 때 총 시간 업데이트
+            myVideo.addEventListener('loadedmetadata', updateTime);
+        }
+
+        window.onload = function() {
+            toggleVideo('myVideo', '.btn', '.current-time', '.total-time', '.slider');
+            toggleVideo('myVideo2', '.btn2', '.current-time2', '.total-time2', '.slider2');
+            toggleVideo('myVideo3', '.btn3', '.current-time3', '.total-time3', '.slider3');
+        };
+    </script>
+
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="home">
+            <img src="images/portfolio_main_home.png" alt="name video portfolio">
+            <a href="https://www.instagram.com/gwonyj91" target="_blank">
+                <span><img src="images/instagram.png" alt="instagram"></span>
+                <span class="in_text">@gwonyj91</span>
+            </a>
+        </div>
+        <div id="youtube">
+            <a href="https://www.youtube.com/channel/UCdZJxwgF2RENsZWrV9PPlyA" target="_blank">
+                <span><img src="images/youtube.png" alt="youtube"></span>
+                <span class="you_text">해리포터</span>
+            </a>
+        </div>
+
+        <div id="content">
+            <div id="resume">
+                <h2><img src="images/title01.png" alt="resume"></h2>
+                <figure><img src="images/about.png" alt="Gwon YongJun"></figure>
+            </div>
+            <div id="portfolio">
+                <h2><img src="images/title02.png" alt="portfolio"></h2>
+                <div class="text">
+                    <p>인포그래픽</p>
+                    <h3>영화 해리포터를 통한 나의 소개</h3>
+                    <p>영화 해리포터의 소재를 인포그래픽으로 재구성하여 내 자신을 표현하였다.</p>
+                </div>
+                <div id="storyboard1">
+                    <h2><img src="images/storyboard1.png" alt="storyboard1"></h2>
+                </div>
+                <div id="v_box">
+                    <video poster="images/infographic.jpg" width="900" id="myVideo">
+                        <source src="media/infographic.mp4">
+                        <source src="media/infographic.ogv">
+                    </video>
+                    <a class="btn" onclick="toggleVideo('myVideo', '.btn', '.current-time', '.total-time', '.slider')">재생/정지</a>
+                    <div class="time-container">
+                        <div class="current-time">0:00</div> <!-- 현재 시간 -->
+                        <div class="total-time">0:00</div> <!-- 총 시간 -->
+                    </div>
+                    <input type="range" class="slider" value="0" min="0" step="0.1" style="width: 100%;">
+                </div>
+            </div>
+
+            <div class="text">
+                <p>유튜브 브이로그</p>
+                <h3>나의 일상 속으로</h3>
+                <p>평범한 하루의 일상을 전반적으로 볼 수 있도록 표현해보았다.</p>
+            </div>
+            <div id="storyboard2">
+                <h2><img src="images/storyboard2.png" alt="storyboard2"></h2>
+            </div>
+            <div id="v_box2">
+                <video poster="images/vlog.jpg" width="900" id="myVideo2">
+                    <source src="media/vlog.mp4">
+                </video>
+                <a class="btn2" onclick="toggleVideo('myVideo2', '.btn2', '.current-time2', '.total-time2', '.slider2')">재생/정지</a>
+                <div class="time-container">
+                    <div class="current-time2">0:00</div> <!-- 현재 시간 -->
+                    <div class="total-time2">0:00</div> <!-- 총 시간 -->
+                </div>
+                <input type="range" class="slider2" value="0" min="0" step="0.1" style="width: 100%;">
+            </div>
+
+            <div class="text">
+                <p>타이틀 시퀀스</p>
+                <h3>경이로운 소문</h3>
+                <p>카운터들의 능력을 한번에 보기 쉽도록 편집하였습니다.</p>
+            </div>
+            <div id="storyboard3">
+                <h2><img src="images/storyboard3.png" alt="storyboard3"></h2>
+            </div>
+            <div id="v_box3">
+                <video poster="images/title.jpg" width="900" id="myVideo3">
+                    <source src="media/Title%20Sequence.mp4">
+                </video>
+                <a class="btn3" onclick="toggleVideo('myVideo3', '.btn3', '.current-time3', '.total-time3', '.slider3')">재생/정지</a>
+                <div class="time-container">
+                    <div class="current-time3">0:00</div> <!-- 현재 시간 -->
+                    <div class="total-time3">0:00</div> <!-- 총 시간 -->
+                </div>
+                <input type="range" class="slider3" value="0" min="0" step="0.1" style="width: 100%;">
+            </div>
+        </div>
+
+        <footer>
+            Copyright &copy; 2021 by Gwon YongJun. All Rights Reserved.
+        </footer>
+    </div>
+</body>
+
+</html>

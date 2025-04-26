@@ -1,0 +1,205 @@
+@charset "utf-8";
+/*스타일의 한글이 깨지지 않도록 하기 위해 꼭 첫번째에 적어야 함*/
+
+@font-face {
+    font-family: "62570";
+    src: url(font/62570.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*가운데정렬*/
+#home {
+    position: relative;
+}
+
+#home a {
+    font-size: 17px;
+    position: absolute;
+    bottom: 50px;
+    right: 300px;
+    text-decoration: none;
+    font-weight: bolder;
+    color: #333;
+}
+
+#home a span {
+    display: block;
+    text-align: center;
+}
+
+.in_text {
+    margin-top: -15px;
+}
+
+#home a span img {
+    width: 100px;
+}
+
+#home a:hover {
+    color: #00f;
+}
+
+#youtube {
+    position: relative;
+}
+
+#youtube a {
+    font-size: 17px;
+    position: absolute;
+    bottom: 50px;
+    left: 1100px;
+    text-decoration: none;
+    font-weight: bolder;
+    color: #333;
+}
+
+#youtube a span {
+    display: block;
+    text-align: center;
+}
+
+.you_text {
+    margin-top: -12px;
+}
+
+#youtube a span img {
+    width: 90px;
+}
+
+#youtube a:hover span {
+    color: #00f;
+}
+
+#wrap {
+    width: 1600px;
+    margin: 0 auto;
+
+}
+
+#content {
+    width: 1094px;
+    margin: 0 auto;
+}
+
+/*영상 포트폴리오*/
+
+.text {
+    border-left: 5px solid #ffe200;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+}
+
+.text p {
+    font-size: 14px;
+    color: #666;
+    font-family: "62570";
+    margin: 0 auto;
+}
+
+.text h3 {
+    font-size: 25px;
+    margin-top: 5px;
+    font-family: "62570";
+    margin: 0 auto;
+}
+
+.storyboard1 {
+    width: 900px;
+}
+
+.storyboard2 {
+    width: 900px;
+}
+
+.storyboard3 {
+    width: 900px;
+}
+.artwork {
+    width: 900px;
+}
+
+footer {
+    text-align: center;
+    line-height: 50px;
+    border-top: 1px solid #ccc;
+    /*선만 있는 경우*/
+    width: 1300px;
+
+    margin: 0 auto;
+    font-family: "62570";
+    /*background: #ccc; 배경색인 경우*/
+}
+
+   #v_box, #v_box2{
+            width: 900px;
+            height: 550px;
+            position: relative;
+        }
+        #v_box >a, #v_box2 >a{
+            position: absolute;
+            width:50px;
+            height: 50px;
+            border-radius: 50%;
+            left: calc(50% - 25px);
+            top: calc(50% - 25px);
+            display: none;
+        }
+        #v_box:hover >a, #v_box2:hover >a{
+            display: block;
+            background: #000 url(media/btn.png) 0 0 no-repeat;
+            text-indent: -9999px;
+        }
+        
+ #v_box, #v_box2, #v_box3{
+            width: 900px;
+            height: 550px;
+            position: relative;
+        }
+        #v_box >a, #v_box2 >a, #v_box3 >a{
+            position: absolute;
+            width:50px;
+            height: 50px;
+            border-radius: 50%;
+            left: calc(50% - 25px);
+            top: calc(50% - 25px);
+            display: none;
+        }
+        #v_box:hover >a, #v_box2:hover >a, #v_box3:hover >a{
+            display: block;
+            background: #000 url(media/btn.png) 0 0 no-repeat;
+            text-indent: -9999px;
+        }
+        
+
+.btn, .btn2, .btn3{
+    cursor:pointer;
+}
+.portfolio-item {
+    position: relative; /* 부모 요소의 위치를 상대적으로 설정 */
+    margin-bottom: 40px;
+}
+
+.video-container {
+    position: relative; /* 자식 요소의 위치를 상대적으로 설정 */
+    width: 450px; /* 비디오의 너비 */
+}
+
+.text-container {
+    position: absolute; /* 절대 위치 지정 */
+    top: 0; /* 비디오 상단에 맞춰 위치 */
+    left: 0; /* 비디오 왼쪽에 맞춰 위치 */
+    color: white; /* 텍스트 색상 */
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
+    padding: 10px; /* 내부 여백 */
+}
+
+.time-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px, 10px;
+}
