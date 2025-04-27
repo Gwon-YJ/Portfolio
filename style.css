@@ -9,9 +9,13 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/*가운데정렬*/
+body {
+    font-family: "62570", sans-serif;
+}
+
 #home {
     position: relative;
 }
@@ -77,15 +81,12 @@
 #wrap {
     width: 1600px;
     margin: 0 auto;
-
 }
 
 #content {
     width: 1094px;
     margin: 0 auto;
 }
-
-/*영상 포트폴리오*/
 
 .text {
     border-left: 5px solid #ffe200;
@@ -107,18 +108,7 @@
     margin: 0 auto;
 }
 
-.storyboard1 {
-    width: 900px;
-}
-
-.storyboard2 {
-    width: 900px;
-}
-
-.storyboard3 {
-    width: 900px;
-}
-.artwork {
+.storyboard1, .storyboard2, .storyboard3, .artwork {
     width: 900px;
 }
 
@@ -126,80 +116,95 @@ footer {
     text-align: center;
     line-height: 50px;
     border-top: 1px solid #ccc;
-    /*선만 있는 경우*/
     width: 1300px;
-
     margin: 0 auto;
     font-family: "62570";
-    /*background: #ccc; 배경색인 경우*/
 }
 
-   #v_box, #v_box2{
-            width: 900px;
-            height: 550px;
-            position: relative;
-        }
-        #v_box >a, #v_box2 >a{
-            position: absolute;
-            width:50px;
-            height: 50px;
-            border-radius: 50%;
-            left: calc(50% - 25px);
-            top: calc(50% - 25px);
-            display: none;
-        }
-        #v_box:hover >a, #v_box2:hover >a{
-            display: block;
-            background: #000 url(media/btn.png) 0 0 no-repeat;
-            text-indent: -9999px;
-        }
-        
- #v_box, #v_box2, #v_box3{
-            width: 900px;
-            height: 550px;
-            position: relative;
-        }
-        #v_box >a, #v_box2 >a, #v_box3 >a{
-            position: absolute;
-            width:50px;
-            height: 50px;
-            border-radius: 50%;
-            left: calc(50% - 25px);
-            top: calc(50% - 25px);
-            display: none;
-        }
-        #v_box:hover >a, #v_box2:hover >a, #v_box3:hover >a{
-            display: block;
-            background: #000 url(media/btn.png) 0 0 no-repeat;
-            text-indent: -9999px;
-        }
-        
-
-.btn, .btn2, .btn3{
-    cursor:pointer;
-}
-.portfolio-item {
-    position: relative; /* 부모 요소의 위치를 상대적으로 설정 */
-    margin-bottom: 40px;
+/* 영상 포트폴리오 */
+#v_box, #v_box2, #v_box3 {
+    width: 900px;
+    height: 550px;
+    position: relative;
+    margin-bottom: 30px;
 }
 
-.video-container {
-    position: relative; /* 자식 요소의 위치를 상대적으로 설정 */
-    width: 450px; /* 비디오의 너비 */
+#v_box video, #v_box2 video, #v_box3 video {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
-.text-container {
-    position: absolute; /* 절대 위치 지정 */
-    top: 0; /* 비디오 상단에 맞춰 위치 */
-    left: 0; /* 비디오 왼쪽에 맞춰 위치 */
-    color: white; /* 텍스트 색상 */
-    background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 */
-    padding: 10px; /* 내부 여백 */
+#v_box > a, #v_box2 > a, #v_box3 > a {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    left: calc(50% - 25px);
+    top: calc(50% - 25px);
+    display: none;
 }
 
+#v_box:hover > a, #v_box2:hover > a, #v_box3:hover > a {
+    display: block;
+    background: #000 url(media/btn.png) 0 0 no-repeat;
+    text-indent: -9999px;
+}
+
+.btn, .btn2, .btn3 {
+    cursor: pointer;
+}
+
+/* 슬라이더 스타일 */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    position: absolute;
+    top: 90%; /* 비디오 바로 아래로 위치 설정 */
+    left: 0;
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);  /* 흐린 검은색 배경을 더욱 부드럽게 */
+    border-radius: 5px; /* 슬라이더 경계 둥글게 */
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: rgba(255, 255, 255, 0.3); /* 투명하게 약간 흰색 배경 */
+    height: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #00f; /* 파란색으로 슬라이더 버튼 색 */
+    border-radius: 50%;
+    width: 14px; /* 크기 약간 증가 */
+    height: 14px; /* 크기 약간 증가 */
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+
+/* 시간 컨테이너 - 슬라이더 바로 위로 배치 */
 .time-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 5px, 10px;
+    position: absolute;
+    bottom: 8%;  /* 슬라이더 바로 위로 배치 */
+    width: 100%;
+    padding: 0 10px;
+    font-size: 16px; /* 글자 크기 약간 증가 */
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);  /* 흐린 검은색 배경 */
+    border-radius: 5px;  /* 둥근 모서리 */
+    padding: 5px 10px;
+}
+
+.current-time, .total-time {
+    font-size: 16px; /* 글자 크기 약간 증가 */
+    color: #fff;
 }
