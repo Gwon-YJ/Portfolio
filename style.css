@@ -180,8 +180,8 @@ input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     background: #00f; /* 파란색으로 슬라이더 버튼 색 */
     border-radius: 50%;
-    width: 14px; /* 크기 약간 증가 */
-    height: 14px; /* 크기 약간 증가 */
+    width: 11px; /* 크기 약간 감소 */
+    height: 11px; /* 크기 약간 감소 */
 }
 
 input[type="range"]:focus {
