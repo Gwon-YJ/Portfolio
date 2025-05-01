@@ -6,6 +6,43 @@
     src: url(font/62570.ttf);
 }
 
+/* 고정 메뉴바 스타일 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  .navbar ul li {
+    display: inline-block;
+    margin: 0 15px;
+  }
+  
+  .navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+  
+  .navbar ul li a:hover {
+    color: #ffcc00;
+  }
+  
+  /* 메뉴바 높이만큼 본문 내려주기 */
+
 * {
     margin: 0;
     padding: 0;
@@ -180,7 +217,7 @@ input[type="range"]::-webkit-slider-thumb {
     appearance: none;
     background: #00f; /* 파란색으로 슬라이더 버튼 색 */
     border-radius: 50%;
-    width: 11px; /* 크기 약간 감소 */
+    width: 11px; /* 크기 약간 감소소 */
     height: 11px; /* 크기 약간 감소 */
 }
 
@@ -207,4 +244,16 @@ input[type="range"]:focus {
 .current-time, .total-time {
     font-size: 16px; /* 글자 크기 약간 증가 */
     color: #fff;
+}
+
+#artwork {
+    width: 900px; /* 부모 요소 크기 */
+    margin: 0 auto; /* 중앙 정렬 */
+}
+
+#artwork img {
+    width: 100%;
+    height: auto;
+    display: block;
+    padding-bottom: 20px; /* 이미지 아래 패딩 추가 */
 }
