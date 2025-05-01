@@ -43,4 +43,4 @@ window.onload = function () {
     initializeVideoControls('myVideo', '.btn', '.current-time', '.total-time', '.slider');
     initializeVideoControls('myVideo2', '.btn2', '.current-time2', '.total-time2', '.slider2');
     initializeVideoControls('myVideo3', '.btn3', '.current-time3', '.total-time3', '.slider3');
-}:
+};
