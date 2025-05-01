@@ -247,13 +247,14 @@ input[type="range"]:focus {
 }
 
 #artwork {
-    width: 900px; /* 부모 요소 크기 */
-    margin: 0 auto; /* 중앙 정렬 */
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto; /* 이 부분으로 부모 요소가 중앙에 위치하도록 설정 */
+    height: 500px;
+    position: relative;
+    left: -95px;  /* 왼쪽으로 95px 이동시킴 */
 }
 
 #artwork img {
-    width: 100%;
-    height: auto;
-    display: block;
-    padding-bottom: 20px; /* 이미지 아래 패딩 추가 */
+    max-width: 100%; /* 이미지의 크기를 부모에 맞게 설정 */
 }
